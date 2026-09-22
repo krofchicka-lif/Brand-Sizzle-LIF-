@@ -12,8 +12,9 @@
 <script src="./support.js"></script>
 </head>
 <body>
-<form name="lif-brand-share" data-netlify="true" hidden>
+<form name="lif-brand-share" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" hidden>
   <input type="hidden" name="form-name" value="lif-brand-share" />
+  <input type="text" name="bot-field" />
   <input type="text" name="brand" /><input type="text" name="contactName" /><input type="email" name="contactEmail" />
   <input type="text" name="roleTitle" /><input type="text" name="websiteInstagram" />
   <input type="text" name="fromName" /><input type="email" name="fromEmail" /><input type="text" name="note" />
@@ -566,7 +567,7 @@ a:hover { color: #CA0000; }
         </div>
         <div>
           <h2 data-disp="1" style="margin:0;max-width:38ch;font-family:RomanaBT,serif;font-weight:400;font-size:clamp(21px,2.5vw,38px);line-height:1.1;letter-spacing:-0.016em;text-wrap:pretty;animation:lifDrift 2000ms cubic-bezier(.16,.7,.2,1) 400ms both">Before <span data-lif="1" style="white-space:nowrap;text-transform:none">Love It Forward</span>,<br data-opt="1" /><span style="white-space:nowrap">there was Lifehood.</span></h2>
-          <p style="margin:clamp(16px,2.6vh,32px) 0 0;max-width:68ch;font-family:Apercu,sans-serif;font-weight:400;font-size:clamp(15px,1.45vw,20px);line-height:1.5;color:#4B4646;text-wrap:pretty;animation:lifDrift 2000ms cubic-bezier(.16,.7,.2,1) 1200ms both">I built a wellness space around one simple idea:<br data-opt="1" />make it easy to do something good for someone else.</p>
+          <p style="margin:clamp(16px,2.6vh,32px) 0 0;max-width:68ch;font-family:Apercu,sans-serif;font-weight:400;font-size:clamp(15px,1.45vw,20px);line-height:1.5;color:#4B4646;text-wrap:pretty;animation:lifDrift 2000ms cubic-bezier(.16,.7,.2,1) 1200ms both">I opened a retail and service space around one simple idea:<br data-opt="1" />make it easy to do something good for someone else.</p>
           <p style="margin:0.75em 0 0;max-width:68ch;font-family:Apercu,sans-serif;font-weight:400;font-size:clamp(15px,1.45vw,20px);line-height:1.5;color:#4B4646;text-wrap:pretty;animation:lifDrift 2000ms cubic-bezier(.16,.7,.2,1) 1900ms both">People arrived knowing someone had chosen to give them a treatment.<br data-opt="1" />Then they discovered who had chosen them and read why.</p>
           <div data-m="stat-grid" style="margin-top:clamp(20px,3.2vh,42px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,3vw,48px);max-width:720px">
             <div style="padding-top:11px;border-top:1px solid rgba(47,43,43,0.22);animation:lifDrift 1500ms cubic-bezier(.16,.7,.2,1) 2600ms both">
@@ -804,7 +805,7 @@ a:hover { color: #CA0000; }
           <sc-if value="{{ shareSent }}" hint-placeholder-val="{{ false }}">
             <div style="margin-top:clamp(26px,4.4vh,52px);padding-bottom:clamp(20px,3.4vh,42px)">
               <div data-disp="1" style="font-family:RomanaBT,serif;font-weight:400;font-size:clamp(26px,3.4vw,44px);line-height:1.06;color:#2F2B2B">{{ sentTitle }} <span style="color:#CA0000">&#9829;</span></div>
-              <div data-disp="1" style="margin-top:14px;font-weight:400;font-family:RomanaBT,serif;font-size:clamp(15px,1.6vw,22px);color:#2F2B2B">Have love. Will share.</div>
+              <div data-disp="1" style="margin-top:14px;font-weight:400;font-family:RomanaBT,serif;font-size:clamp(15px,1.6vw,22px);color:#2F2B2B;max-width:30ch;text-wrap:pretty">{{ sentMessage }}</div>
               <div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:2px 10px;font-family:Apercu,sans-serif;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#6B6664">
                 <span>Give good.</span><span>Feel good.</span><span>Share the love.</span>
               </div>
@@ -817,7 +818,7 @@ a:hover { color: #CA0000; }
               <span>{{ overlayLine1 }}</span>
               <span>{{ overlayLine2 }}</span>
             </div>
-            <form name="lif-brand-share" data-netlify="true" onSubmit="{{ submitShare }}" style="margin-top:clamp(18px,3vh,34px);display:flex;flex-direction:column;gap:clamp(14px,2.2vh,24px)">
+            <form name="lif-brand-share" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" onSubmit="{{ submitShare }}" style="margin-top:clamp(18px,3vh,34px);display:flex;flex-direction:column;gap:clamp(14px,2.2vh,24px)">
               <div style="display:flex;flex-direction:column;gap:clamp(11px,1.8vh,18px)">
                 <div style="font-family:Apercu,sans-serif;font-weight:700;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#CA0000">{{ brandSectionLabel }}</div>
             <label style="display:flex;flex-direction:column;gap:5px">
@@ -859,12 +860,13 @@ a:hover { color: #CA0000; }
               </div>
               </sc-if>
               <input type="hidden" name="form-name" value="lif-brand-share" />
+              <input type="hidden" name="bot-field" value="" />
               <input type="hidden" name="intent" value="{{ formIntent }}" />
               <input type="hidden" name="source" value="LIF GTM Sizzle" />
               <input type="hidden" name="submittedAt" value="" />
-              <button type="submit" style="align-self:flex-start;margin-top:2px;padding:14px 30px;border:0;background:#CA0000;color:#FDFCF8;font-family:Apercu,sans-serif;font-weight:700;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;transition:background 320ms ease" style-hover="background:#2F2B2B">{{ submitLabelLive }}</button>
+              <button type="submit" disabled="{{ sending }}" style="align-self:flex-start;margin-top:2px;padding:14px 30px;border:0;opacity:{{ submitOpacity }};pointer-events:{{ submitPointer }};background:#CA0000;color:#FDFCF8;font-family:Apercu,sans-serif;font-weight:700;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;transition:background 320ms ease" style-hover="background:#2F2B2B">{{ submitLabelLive }}</button>
               <sc-if value="{{ sendError }}" hint-placeholder-val="{{ false }}">
-                <div style="font-family:Apercu,sans-serif;font-weight:400;font-size:14px;line-height:1.5;color:#CA0000;text-wrap:pretty">This copy of the sizzle has no submission connection, so nothing was sent. Email hello@loveitforward.co and we will pick it up from there.</div>
+                <div style="font-family:Apercu,sans-serif;font-weight:400;font-size:14px;line-height:1.5;color:#CA0000;text-wrap:pretty">{{ errorMessage }}</div>
               </sc-if>
             </form>
           </div>
@@ -992,7 +994,7 @@ class Component extends DCLogic {
 
   shareLink = async () => {
     const url = this.SIZZLE_URL;
-    const data = { title: "Love It Forward", text: "Have love. Will share.", url: url };
+    const data = { title: "Love It Forward", text: "Thought of you when I saw this. Take a look at Love It Forward.", url: url };
     try {
       if (navigator.share && (!navigator.canShare || navigator.canShare(data))) {
         await navigator.share(data);
@@ -1045,6 +1047,7 @@ class Component extends DCLogic {
       this.setState({ sendError: true, shareSent: false });
       return;
     }
+    if (this.state.sending) return;
     this.setState({ sending: true, sendError: false });
     fetch("/", {
       method: "POST",
@@ -1083,6 +1086,13 @@ class Component extends DCLogic {
       shareForm: !this.state.shareSent,
       sendError: !!this.state.sendError,
       submitLabelLive: this.state.sending ? "Sending\u2026" : (this.state.pilot ? "Start the pilot" : "Send it their way"),
+      sending: !!this.state.sending,
+      submitOpacity: this.state.sending ? 0.55 : 1,
+      submitPointer: this.state.sending ? "none" : "auto",
+      sentMessage: "Thanks for introducing yourself. We\u2019ll be in touch.",
+      errorMessage: (location.protocol === "file:" || location.protocol === "blob:")
+        ? "This offline copy can\u2019t send. Open the published sizzle and submit there, or email hello@loveitforward.co."
+        : "That didn\u2019t send. Your details are still here \u2014 press the button again to retry.",
       openShare: this.openShare,
       shareLink: this.shareLink,
       shareLabel: this.state.shareCopied ? "Link copied" : "Share the love",
